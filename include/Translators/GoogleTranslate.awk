@@ -109,7 +109,8 @@ function googleTranslate(text, sl, tl, hl,
     _sl = getCode(sl); if (!_sl) _sl = sl
     _tl = getCode(tl); if (!_tl) _tl = tl
     _hl = getCode(hl); if (!_hl) _hl = hl
-    content = getResponse(text, _sl, _tl, _hl)
+    url = googleRequestUrl(text, _sl, _tl, _hl)
+    content = curl(url)
     if (Option["dump"])
         return content
     tokenize(tokens, content)
